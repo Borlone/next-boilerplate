@@ -1,3 +1,23 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+
+    "no-unused-vars": "warn",
+    "eqeqeq": "error",
+    "max-depth": ["error", 4],
+    "max-lines": ["error", 300],
+    "no-console": "warn",
+    "no-else-return": "error",
+    "no-var": "error",
+    "no-useless-return": "error",
+    "require-await": "error"
+  }
 }
