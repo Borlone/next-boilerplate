@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export function middleware(request: NextRequest) {
-   const isAuthenticated = true;
+   // handle the authorization in here
+   const isAuthenticated = false;
 
    if (isAuthenticated && request.nextUrl.pathname.startsWith('/sign-in')) {
       return NextResponse.redirect(new URL('/', request.url))

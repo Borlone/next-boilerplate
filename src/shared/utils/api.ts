@@ -70,4 +70,6 @@ class ApiClient {
    }
 }
 
+export const api = new ApiClient().getInstance();
+
 export default ApiClient;
