@@ -1,18 +1,17 @@
-import type { ReactElement } from 'react'
+import type { ReactElement } from 'react';
 import MainLayout from '@/shared/layouts/MainLayout';
+import useTrans from '@/configs/hooks/useTrans';
 
 export default function Home() {
+   const trans = useTrans();
+
    return (
       <div>
-         <h3>Hello world</h3>
+         <h3>{trans.home.title}</h3>
       </div>
    );
 }
 
 Home.getLayout = function getLayout(page: ReactElement) {
-   return (
-      <MainLayout>
-         {page}
-      </MainLayout>
-   )
-}
+   return <MainLayout>{page}</MainLayout>;
+};

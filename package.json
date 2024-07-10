@@ -9,8 +9,7 @@
     "preview": "next build && next start",
     "lint": "next lint",
     "format": "prettier src/**/*.tsx --write",
-    "lint:fix": "npm run lint-staged && npm run lint",
-    "lint-staged": "lint-staged",
+    "lint-staged": "lint-staged && next lint",
     "prepare": "husky"
   },
   "dependencies": {
@@ -23,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
@@ -31,11 +31,15 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
+    "postcss": "^8.4.39",
     "prettier": "3.3.2",
     "sass": "^1.77.6",
+    "tailwindcss": "^3.4.4",
     "typescript": "^5"
   },
   "lint-staged": {
-    "**/*.tsx": "npm run format"
+    "*.tsx": [
+      "npm run format"
+    ]
   }
 }

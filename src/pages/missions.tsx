@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react'
+import type { ReactElement } from 'react';
 import MainLayout from '@/shared/layouts/MainLayout';
 import Missions from '@/routers/missions';
 
@@ -7,9 +7,5 @@ export default function MissionsPage() {
 }
 
 MissionsPage.getLayout = function getLayout(page: ReactElement) {
-   return (
-      <MainLayout>
-         {page}
-      </MainLayout>
-   )
-}
+   return <MainLayout>{page}</MainLayout>;
+};

@@ -1,4 +1,8 @@
+import useTrans from "@/configs/hooks/useTrans";
+
 export default function Dashboard() {
+   const trans = useTrans()
+
    const a: any = {};
    const throwError = () => {
       console.log(a.name.age)
@@ -6,7 +10,7 @@ export default function Dashboard() {
 
    return (
       <div>
-         <h3 onClick={throwError}>Dashboard</h3>
+         <h3 onClick={throwError}>{trans.home.content}</h3>
       </div>
    );
 }

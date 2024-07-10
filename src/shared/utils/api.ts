@@ -9,30 +9,6 @@ const errorCallback = (status: number, error: string) => {
    return { status, error: error ?? '' };
 };
 
-const processQueue = (error: AxiosError | null, token = null) => {
-   failedQueue.forEach((item) => {
-      if (error) {
-         item.reject(error);
-      } else {
-         item.resolve(token);
-      }
-   });
-
-   failedQueue = [];
-};
-
-const handleRefreshToken = (config: InternalAxiosRequestConfig<any>, api: AxiosInstance) => {
-   return new Promise((resolve, reject) => {
-      failedQueue.push({ resolve, reject });
-   })
-      .then(() => {
-         if (config) return api(config);
-      })
-      .catch((err) => {
-         return Promise.reject(err);
-      });
-};
-
 class ApiClient {
    baseURL: string;
    tokenType: string;
@@ -71,7 +47,6 @@ class ApiClient {
             return response.data;
          },
          (error: AxiosError) => {
-            const config = error.config;
             const resError = error.response;
             const dataError: any = resError?.data;
 
@@ -83,30 +58,7 @@ class ApiClient {
                   break;
                }
                case 401:
-                  // if (config.url === `${REFRESH_URL}/api/auth/refresh_token`) {
-                  //    handleGetToken();
-                  //    return errorCallback(401, dataError?.message);
-                  // }
-
-                  // // Handle if token is refreshing
-                  // if (isRefreshing) {
-                  //    return handleRefreshToken(config, api);
-                  // }
-                  // isRefreshing = true;
-
-                  // const res: APIResponse<{
-                  //    access_token: string;
-                  // }> = await api.get(`${REFRESH_URL}/api/auth/refresh_token`);
-
-                  // if (res?.data?.access_token) {
-                  //    const { access_token } = res.data;
-                  //    localStorage.setItem('token', access_token);
-                  //    processQueue(null, access_token);
-                  //    if (config)
-                  //       return api(config).finally(() => {
-                  //          isRefreshing = false;
-                  //       });
-                  // }
+                  // handle refresh token in here
 
                   return Promise.reject(error);
                default:
