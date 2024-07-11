@@ -13,10 +13,13 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "axios": "^1.7.2",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.52.1",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",

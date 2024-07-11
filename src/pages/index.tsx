@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import MainLayout from '@/shared/layouts/MainLayout';
-import useTrans from '@/configs/hooks/useTrans';
+import useTrans from '@/shared/hooks/useTrans';
 
 export default function Home() {
    const trans = useTrans();
