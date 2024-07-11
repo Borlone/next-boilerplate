@@ -9,7 +9,6 @@
     "preview": "next build && next start",
     "lint": "next lint",
     "format": "prettier src/**/*.tsx --write",
-    "lint-staged": "lint-staged && next lint",
     "prepare": "husky",
     "cypress:open": "cypress open"
   },
@@ -38,10 +37,5 @@
     "sass": "^1.77.6",
     "tailwindcss": "^3.4.4",
     "typescript": "^5"
-  },
-  "lint-staged": {
-    "*.tsx": [
-      "npm run format"
-    ]
   }
 }

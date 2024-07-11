@@ -1,12 +1,12 @@
-import useTrans from "@/configs/hooks/useTrans";
+import useTrans from '@/configs/hooks/useTrans';
 
 export default function Dashboard() {
-   const trans = useTrans()
+   const trans = useTrans();
 
    const a: any = {};
    const throwError = () => {
-      console.log(a.name.age)
-   }
+      console.log(a.name.age);
+   };
 
    return (
       <div>

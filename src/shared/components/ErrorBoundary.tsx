@@ -1,29 +1,29 @@
-import React, { ErrorInfo, ReactNode } from "react"
+import React, { ErrorInfo, ReactNode } from 'react';
 
 type Props = {
    children: ReactNode;
-}
+};
 
 type State = {
    hasError: boolean;
-}
+};
 
 class ErrorBoundary extends React.Component<Props, State> {
    constructor(props: Props) {
-      super(props)
+      super(props);
 
       // Define a state variable to track whether is an error or not
-      this.state = { hasError: false }
+      this.state = { hasError: false };
    }
    static getDerivedStateFromError(error: Error): State {
       // Update state so the next render will show the fallback UI
-      return { hasError: Boolean(error) }
+      return { hasError: Boolean(error) };
    }
    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
       if (error) {
          this.setState({ hasError: true });
          // You can use your own error logging service here
-         console.log({ error, errorInfo })
+         // console.log({ error, errorInfo })
       }
    }
    render() {
@@ -40,13 +40,13 @@ class ErrorBoundary extends React.Component<Props, State> {
                   Try again?
                </button>
             </div>
-         )
+         );
       }
 
       // Return children components in case of no error
 
-      return this.props.children
+      return this.props.children;
    }
 }
 
-export default ErrorBoundary
+export default ErrorBoundary;
