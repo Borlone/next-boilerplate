@@ -1,13 +1,12 @@
 import type { ReactElement } from 'react';
 import MainLayout from '@/shared/layouts/MainLayout';
-import useTrans from '@/shared/hooks/useTrans';
+import ConnectWallet from '@/shared/components/wagmi/WalletConnect';
 
 export default function Home() {
-   const trans = useTrans();
 
    return (
       <div>
-         <h3>{trans.home.title}</h3>
+         <ConnectWallet />
       </div>
    );
 }
